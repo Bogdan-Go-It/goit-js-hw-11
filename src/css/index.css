@@ -1,0 +1,126 @@
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
+}
+
+body {
+  background-color: rgb(244, 221, 243);
+}
+
+:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+.gallery {
+  display: grid;
+  max-width: 1140px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 12px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo-card {
+  position: relative;
+  background-color: white;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.gallery__image:hover {
+  transform: scale(1.03);
+}
+
+.gallery__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.gallery__link {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  width: 372px;
+  height: 372px;
+}
+
+.gallery__link:hover {
+  cursor: zoom-in;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.search-form {
+  display: block;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+  box-shadow: 0px 10px 5px 0px rgba(211, 98, 188, 0.36);
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(211, 98, 188, 0.36);
+  -moz-box-shadow: 0px 10px 5px 0px rgba(211, 98, 188, 0.36);
+}
+
+.search-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #ea4c89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.search-button:hover,
+.search-button:focus {
+  background-color: #f082ac;
+}
+
+.search-input {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  appearance: auto;
+  min-width: 30px;
+  border: 1.5px solid var(--white-color);
+  border-radius: 4px;
+}
+
+.search-input::placeholder {
+  text-align: center;
+  color: #ea4c89;
+}
+
+input[type='text']:focus {
+  background-color: #f082ac;
+  color: white;
+}
+
+.info-item {
+  text-align: center;
+}
