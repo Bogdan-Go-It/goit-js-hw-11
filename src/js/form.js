@@ -1,4 +1,4 @@
-export function createMarkup(arrayOfImgs = []) {
+export function createForm(arrayOfImgs = []) {
   return arrayOfImgs
     .map(
       ({

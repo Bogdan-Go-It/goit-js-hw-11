@@ -2,8 +2,8 @@ import { Notify } from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 // **************************************************************************************
-import { fetchImgs } from './js/api';
-import { createMarkup } from './js/markup';
+import { createURLImg } from './js/api';
+import { createForm } from './js/form';
 // **************************************************************************************
 const form = document.getElementById('search-form');
 const gallery = document.querySelector('.gallery');
@@ -40,7 +40,7 @@ form.addEventListener('submit', event => {
 async function getImgParams(searchQuery) {
   try {
     page = 1;
-    const { hits: arrayOfImgs, totalHits } = await fetchImgs(
+    const { hits: arrayOfImgs, totalHits } = await createURLImg(
       searchQuery,
       PER_PAGE,
       page
@@ -57,9 +57,9 @@ async function getImgParams(searchQuery) {
 
     clearGallery();
 
-    const markup = createMarkup(arrayOfImgs);
+    const form = createForm(arrayOfImgs);
 
-    renderGallery(markup);
+    renderGallery(form);
 
     lightbox.refresh();
 
@@ -84,11 +84,11 @@ async function onClickButton() {
   //add event if use button
   try {
     page += 1;
-    const { hits, totalHits } = await fetchImgs(searchQuery, PER_PAGE, page);
+    const { hits, totalHits } = await createURLImg(searchQuery, PER_PAGE, page);
 
-    const markup = createMarkup(hits);
+    const form = createForm(hits);
 
-    renderGallery(markup);
+    renderGallery(form);
 
     lightbox.refresh();
 
